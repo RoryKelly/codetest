@@ -1,0 +1,25 @@
+schema {
+    query: Query
+}
+
+interface Node {
+    id: ID!
+}
+
+type Query {
+    me: User
+    todo: [Todo]!
+}
+
+type Todo implements Node {
+    id: ID!
+    text: String!
+    user: User!
+}
+
+type User implements Node {
+    id: ID!
+    name: String!
+    email: String!
+}
+
