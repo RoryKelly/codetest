@@ -9,8 +9,10 @@ import {Context, context} from './context'
 // Resolvers define the technique for fetching the types defined in the
 // schema. This resolver retrieves books from the "books" array above.
 
+
 const resolvers : Resolvers<Context> = {
     Query: {
+        // @ts-ignore
        todo: async (parent, args, {prisma}, info) =>  {
            let value = await prisma.todo.findMany({include:{ user: true }})
            return value
